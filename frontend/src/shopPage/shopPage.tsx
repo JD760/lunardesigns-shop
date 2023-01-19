@@ -13,24 +13,31 @@ export default function ShopPageComponent() {
             <div className="shop-navbar">
                 <div className="socials">SOCIALS</div>
                 <div className="title"><a href="/">LUNAR DESIGNS</a></div>
-                <div className="basket">BASKET</div>
+                <div className="basket"><img src="cart.svg"/></div>
             </div>
             <div className="shop-content-container">
                 <div className="shop-item">
-                    <div className="item-img-container"></div>
-                    <div className="item-title-container"></div>
+                    <div className="item-img-container">
+                        <img className="listing-img" src="whippets.png"/>
+                    </div>
+                    <div className="item-title-container">
+                    </div>
                 </div>
+
                 <div className="shop-item">
-                    <div className="item-img-container"></div>
-                    <div className="item-title-container"></div>
+                    <div className="item-img-container">
+                        <img className="listing-img" src="whippets.png"/>
+                    </div>
+                    <div className="item-title-container">
+                    </div>
                 </div>
+
                 <div className="shop-item">
-                    <div className="item-img-container"></div>
-                    <div className="item-title-container"></div>
-                </div>
-                <div className="shop-item">
-                    <div className="item-img-container"></div>
-                    <div className="item-title-container"></div>
+                    <div className="item-img-container">
+                        <img className="listing-img" src="whippets.png"/>
+                    </div>
+                    <div className="item-title-container">
+                    </div>
                 </div>
             </div>
         </div>

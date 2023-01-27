@@ -10,6 +10,8 @@ export default function ShopItemComponent(props: ShopItemProps) {
                 <img className="listing-img" src="whippets.png"/>
             </div>
             <div className="item-title-container">
+                <p className="listing-title">Resin Whippet Ornament</p>
+                <p className="listing-price">£15.00</p>
             </div>
         </div>
     )

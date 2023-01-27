@@ -5,11 +5,6 @@ import SearchComponent from "./searchComponent";
 import "./shopPage.css";
 
 export default function ShopPageComponent() {
-    const handleRedirect = (url: string) => {
-        console.log("redirect attempt to : ", url);
-        redirect(url);
-    }
-
     return(
         <div className="shop-page-container">
             <div className="shop-navbar">
@@ -23,6 +18,7 @@ export default function ShopPageComponent() {
                 <hr className="search-content-separator"/>
             </div>
             <div className="shop-content-container">
+                <ShopItemComponent/>
                 <ShopItemComponent/>
                 <ShopItemComponent/>
                 <ShopItemComponent/>

@@ -1,12 +1,56 @@
 .shop-page-container {
     display: grid;
-    grid-template-areas: 
-    "header"
-    "content";
-    grid-template-rows: 8vh 92vh;
+    grid-template-rows: 12vh 88vh;
     max-width: 100vw;
     height: 100vh;
     overflow: scroll;
+}
+
+@media screen and (min-width: 900px) {
+    .shop-page-container {
+        grid-template-rows: 100vh;
+    }
+    .search-content-separator {
+        display: none;
+        visibility: hidden;
+    }
+    .content-wrapper {
+        padding-top: 6vh;
+        display: grid;
+        grid-template-columns: 20vw 80vw;
+        grid-template-rows: 94vh;
+    }
+    .shop-content-container {
+        grid-column: 2;
+    }
+    .shop-content-container {
+        background-color: aqua;
+    }
+
+    .header-search {
+        display: none;
+        visibility: hidden;
+    }
+
+    .sidebar-search {
+        grid-column: 1;
+        grid-row: 1;
+        width: 100%;
+        height: 100%;
+        background-color: blanchedalmond;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .sidebar-search {
+        display: none;
+        visibility: hidden;
+    }
+}
+
+.header-search {
+    height: 6vh;
+    position: relative;
 }
 
 .shop-navbar {
@@ -14,7 +58,6 @@
     width: 100vw;
     position: fixed;
     z-index: 100;
-    grid-area: "header";
 }
 
 .shop-header {
@@ -39,10 +82,14 @@
     border: 1px solid rgb(161, 161, 161);
 }
 
+@media screen and (max-width: 900px) {
+    .shop-content-container {
+        padding-top: 13vh;
+    }
+}
+
 .shop-content-container {
     /* padding is of header + some spacing */
-    padding-top: 13vh;
-    grid-area: "content";
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;

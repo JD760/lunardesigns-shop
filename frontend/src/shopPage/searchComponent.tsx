@@ -11,7 +11,7 @@ export default function SearchComponent(props: SearchProps) {
     return(
         <div className="search-filter">
             <div className="searchbar-container">
-                <input 
+                <input
                     className="searchbar"
                     type="text"
                     placeholder="Search..."

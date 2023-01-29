@@ -1,6 +1,7 @@
 import { redirect } from "react-router-dom";
 import ShopItemComponent from "./shopItem";
-import SearchComponent from "./searchComponent";
+import HeaderSearchComponent from "./searchComponent";
+import SidebarSearchComponent from "./SidebarSearchComponent";
 
 import "./shopPage.css";
 import { useState } from "react";
@@ -17,7 +18,7 @@ export default function ShopPageComponent() {
                 <hr className="search-content-separator"/>
                 {/* Shown when the screen size is less than 1000px wide */}
                 <div className="header-search">
-                    <SearchComponent/>
+                    <HeaderSearchComponent/>
                 </div>
             </div>
             <div className="content-wrapper">
@@ -27,10 +28,25 @@ export default function ShopPageComponent() {
                 <ShopItemComponent/>
                 <ShopItemComponent/>
                 <ShopItemComponent/>
+                <ShopItemComponent/>
+                <ShopItemComponent/>
+                <ShopItemComponent/>
+                <ShopItemComponent/>
+                <ShopItemComponent/>
+                <ShopItemComponent/>
+                <ShopItemComponent/>
+                <ShopItemComponent/>
+                <ShopItemComponent/>
+                <ShopItemComponent/>
+                <ShopItemComponent/>
+                <ShopItemComponent/>
+                <ShopItemComponent/>
+                <ShopItemComponent/>
+                <ShopItemComponent/>
             </div>
             {/* Shown when the screen size is more than 1000px wide */}
             <div className="sidebar-search">
-                <SearchComponent/>
+                <SidebarSearchComponent/>
             </div>
             </div>
         </div>

@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import "./searchComponent.css";
+import "./headerSearchComponent.css";
 
-interface SearchProps {
+interface HeaderSearchProps {
 
 }
 
-export default function SearchComponent(props: SearchProps) {
+export default function HeaderSearchComponent(props: HeaderSearchProps) {
     const [searchTerm, setSearchTerm] = useState<string>("");
 
     return(

@@ -23,10 +23,10 @@
     .shop-content-container {
         grid-column: 2;
     }
-    .shop-content-container {
-        background-color: aqua;
-    }
 
+    .shop-navbar {
+        height: 6vh;
+    }
     .header-search {
         display: none;
         visibility: hidden;
@@ -35,9 +35,9 @@
     .sidebar-search {
         grid-column: 1;
         grid-row: 1;
-        width: 100%;
+        position: absolute;
         height: 100%;
-        background-color: blanchedalmond;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
     }
 }
 
@@ -45,6 +45,9 @@
     .sidebar-search {
         display: none;
         visibility: hidden;
+    }
+    .shop-navbar {
+        height: 12vh;
     }
 }
 
@@ -54,7 +57,7 @@
 }
 
 .shop-navbar {
-    height: 12vh;
+    height: 6vh;
     width: 100vw;
     position: fixed;
     z-index: 100;

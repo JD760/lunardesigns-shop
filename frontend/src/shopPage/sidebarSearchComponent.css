@@ -1,0 +1,46 @@
+@media screen and (min-width: 900px) {
+    .search-container {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        gap: 1vh;
+    }
+
+    .searchbar {
+        width: 90%;
+        margin: auto;
+        margin-top: 1vh;
+        height: 4vh;
+        outline: none;
+        font-size: large;
+    }
+
+    .filter-category {
+        width: 90%;
+        margin: auto;
+        padding-bottom: 1vh;
+        border-bottom: 1px solid black;
+    }
+
+    .filter-category-label {
+        font-size: medium;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        user-select: none;
+        text-decoration: underline;
+    }
+
+    input, label {
+        user-select: none;
+    }
+
+    .reset-container {
+        text-align: center;
+    }
+
+    .reset-filters {
+        margin: auto;
+        width: 30%;
+    }
+}

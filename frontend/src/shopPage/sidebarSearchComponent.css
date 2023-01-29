@@ -4,6 +4,7 @@
         flex-flow: column wrap;
         justify-content: center;
         gap: 1vh;
+        width: 20vw;
     }
 
     .searchbar {
@@ -42,5 +43,13 @@
     .reset-filters {
         margin: auto;
         width: 30%;
+    }
+
+    .filter-category:last-of-type {
+        border: 0;
+    }
+
+    .filter-category:first-of-type {
+        padding-top: 2vh;
     }
 }

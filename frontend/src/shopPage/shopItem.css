@@ -77,3 +77,7 @@
 a {
     color: inherit;
 }
+
+.item-wrapper {
+    text-decoration: none;
+}

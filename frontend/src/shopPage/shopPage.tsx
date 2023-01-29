@@ -7,6 +7,13 @@ import "./shopPage.css";
 import { useState } from "react";
 
 export default function ShopPageComponent() {
+
+    let shopItems: JSX.Element[] = [];
+
+    for (let i=0; i < 100; i++) {
+        shopItems.push(<ShopItemComponent id={i} price={15.00}/>)
+    }
+
     return(
         <div className="shop-page-container">
             <div className="shop-navbar">
@@ -23,26 +30,7 @@ export default function ShopPageComponent() {
             </div>
             <div className="content-wrapper">
             <div className="shop-content-container">
-                <ShopItemComponent/>
-                <ShopItemComponent/>
-                <ShopItemComponent/>
-                <ShopItemComponent/>
-                <ShopItemComponent/>
-                <ShopItemComponent/>
-                <ShopItemComponent/>
-                <ShopItemComponent/>
-                <ShopItemComponent/>
-                <ShopItemComponent/>
-                <ShopItemComponent/>
-                <ShopItemComponent/>
-                <ShopItemComponent/>
-                <ShopItemComponent/>
-                <ShopItemComponent/>
-                <ShopItemComponent/>
-                <ShopItemComponent/>
-                <ShopItemComponent/>
-                <ShopItemComponent/>
-                <ShopItemComponent/>
+                {shopItems}
             </div>
             {/* Shown when the screen size is more than 1000px wide */}
             <div className="sidebar-search">

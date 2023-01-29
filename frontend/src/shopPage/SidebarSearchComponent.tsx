@@ -7,7 +7,6 @@ interface SidebarSearchProps {
 export default function SidebarSearchComponent(props: SidebarSearchProps) {
     return(
         <div className="search-container">
-            <input className="searchbar" placeholder="Search..."/>
             <div className="filter-category type-category">
                 <p className="filter-category-label">Type</p>
                 <input name="whippet" id="whippet" type="checkbox"/>

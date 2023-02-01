@@ -1,0 +1,17 @@
+.navbar {
+    height: 6vh;
+    width: 100vw;
+    background-color: aqua;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+}
+
+@media screen and (min-width: 900px) {
+    .listing-wrapper {
+        width: 100vw;
+        height: 100vh;
+    }
+}

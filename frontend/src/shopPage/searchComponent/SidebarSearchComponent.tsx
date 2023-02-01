@@ -1,15 +1,34 @@
+import { useEffect, useState } from "react"
 import "./sidebarSearchComponent.css"
+import Checkbox from "../checkbox";
 
 interface SidebarSearchProps {
 
 }
 
 export default function SidebarSearchComponent(props: SidebarSearchProps) {
+    const [selectedCheckboxes, setSelectedCheckboxes] = useState(() => new Set());
+
+    const checkboxToggle = (label: string) => {
+        let newSelected = selectedCheckboxes;
+        if (selectedCheckboxes.has(label)) {
+            newSelected.delete(label);
+            setSelectedCheckboxes(newSelected);
+        } else {
+            newSelected.add(label);
+            setSelectedCheckboxes(newSelected);
+        }
+    }
+    
     return(
         <div className="search-container">
             <div className="filter-category type-category">
                 <p className="filter-category-label">Type</p>
-                <input name="whippet" id="whippet" type="checkbox"/>
+                <Checkbox
+                    label="whippet"
+                    checkboxToggle={checkboxToggle}
+                    value={selectedCheckboxes.has("whippet")}
+                />
                 <label htmlFor="whippet">Whippet</label>
                 <br/>
                 <input name="labrador" id="labrador" type="checkbox"/>
@@ -51,7 +70,10 @@ export default function SidebarSearchComponent(props: SidebarSearchProps) {
 
             {/* Reset filter options to default values */}
             <div className="filter-category reset-container">
-                <button className="reset-filters">Reset</button>
+                <button 
+                    className="reset-filters"
+                >Reset
+                </button>
             </div>
         </div>
     )

@@ -14,7 +14,7 @@ export default function ShopItemComponent(props: ShopItemProps) {
             </div>
             <div className="item-title-container">
                 <p className="listing-title">Resin Whippet Ornament</p>
-                <p className="listing-price">£{props.price}</p>
+                <p className="listing-price">£{props.price.toFixed(2)}</p>
             </div>
         </div>
         </a>

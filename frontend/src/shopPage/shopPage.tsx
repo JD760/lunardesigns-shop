@@ -1,7 +1,7 @@
 import { redirect } from "react-router-dom";
 import ShopItemComponent from "./shopItem";
-import HeaderSearchComponent from "./searchComponent";
-import SidebarSearchComponent from "./SidebarSearchComponent";
+import HeaderSearchComponent from "./searchComponent/searchComponent";
+import SidebarSearchComponent from "./searchComponent/SidebarSearchComponent";
 
 import "./shopPage.css";
 import { useState } from "react";
@@ -19,7 +19,7 @@ export default function ShopPageComponent() {
             <div className="shop-navbar">
                 <div className="shop-header">
                     <div className="socials">SOCIALS</div>
-                    <div className="title"><a href="/">LUNAR DESIGNS</a></div>
+                    <div className="title"><a href="/">WHIPPET WORLD</a></div>
                     <div className="basket"><img src="cart.svg"/></div>
                 </div>
                 <hr className="search-content-separator"/>

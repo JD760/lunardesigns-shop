@@ -3,20 +3,25 @@ import "./checkbox.css";
 
 interface CheckboxProps {
     label: string
-    checkboxToggle: Function
     value: boolean
+    id: number
+    toggle: Function
 }
 
 export default function Checkbox(props: CheckboxProps) {
     return(
-        <input 
-            name="whippet"
-            id="whippet"
+        <div>
+        <input
+            name={props.label}
+            id={props.label}
             type="checkbox"
-            checked={props.value}
-            onChange={() => {
-                props.checkboxToggle(props.label);
-            }}
+            defaultChecked={props.value}
+            onChange={() => props.toggle(props.id)}
+            // TODO: why does this make the filter work?
+            key={Math.random()}
         />
+        <label className="checkbox-label" htmlFor={props.label}>{props.label}</label>
+        <br/>
+        </div>
     )
 }

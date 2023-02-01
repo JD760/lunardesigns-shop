@@ -11,7 +11,7 @@ export default function ShopPageComponent() {
     let shopItems: JSX.Element[] = [];
 
     for (let i=0; i < 100; i++) {
-        shopItems.push(<ShopItemComponent id={i} price={15.00}/>)
+        shopItems.push(<ShopItemComponent id={i} price={15.00} key={i}/>)
     }
 
     return(

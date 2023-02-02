@@ -1,6 +1,3 @@
-import { useState } from "react";
-import "./checkbox.css";
-
 interface CheckboxProps {
     label: string
     value: boolean

@@ -1,32 +1,15 @@
 import { useEffect, useState } from "react"
 import "./sidebarSearchComponent.css"
-import Checkbox from "../checkbox";
+import Checkbox from "./checkbox";
 
 interface SidebarSearchProps {
-
+    items: Array<any>,
+    setItems: Function
 }
 
 export default function SidebarSearchComponent(props: SidebarSearchProps) {
-    const allItems = [
-        // ornament types
-        {label: "Whippet", checked: false},
-        {label: "Labrador", checked: false},
-        {label: "Cat", checked: false},
-        // sizes
-        {label: "7cm", checked: false},
-        {label: "9cm", checked: false},
-        {label: "11cm", checked: false},
-        // style
-        {label: "Hearts", checked: false},
-        {label: "Sparkles", checked: false},
-        {label: "Clear", checked: false},
-        // colour
-        {label: "Black", checked: false},
-        {label: "White", checked: false},
-        {label: "Blue", checked: false},
-    ]
-
-    const [items, setItems] = useState(allItems)
+    const items = props.items;
+    const setItems = props.setItems;
 
     const toggle = (id: number) => {
         let newItems = items.slice();

@@ -1,0 +1,34 @@
+.dropdown {
+    width: 20vw;
+    outline: 1px solid black;
+    text-align: center;
+    position: relative;
+    background-color: white;
+}
+
+.dropdown .select {
+    width: 100%;
+}
+
+.overselect {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+#checkboxes {
+    display: none;
+    border: 1px #dadada solid;
+    background-color: white;
+}
+
+#checkboxes label {
+    display: inline;
+    user-select: none;
+}
+
+#checkboxes label:hover {
+    background-color: whitesmoke;
+}

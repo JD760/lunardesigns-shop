@@ -1,5 +1,5 @@
 @media screen and (max-width: 900px) {
-    .search-filter {
+    .header-search {
         height: 6vh;
         min-height: 60px;
         z-index: 100;
@@ -7,39 +7,8 @@
         
         display: flex;
         flex-flow: row nowrap;
-        justify-content: flex-start;
-        align-items: center;
-        gap: 2vw;
-    }
-
-    .searchbar-container {
-        width: 45vw;
-        height: 70%;
-        max-width: 300px;
-        margin-left: 2.5%;
-        outline: 1px solid black;
-        text-align: center;
-    }
-
-    input {
-        width: 95%;
-        margin: 0;
-        padding: 0;
-        height: 95%;
-        border: none;
-        outline: none;
-        font-size: medium;
-    }
-
-    .filter-container {
-        width: 20vw;
-        height: 70%;
-    }
-
-    .filter {
-        width: 100%;
-        height: 100%;
-        max-width: 128px;
-        font-size: medium;
+        justify-content: space-evenly;
+        gap: 4vw;
+        padding-top: 0.5vh;
     }
 }

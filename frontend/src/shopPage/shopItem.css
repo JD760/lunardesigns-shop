@@ -42,6 +42,7 @@
 .listing-title {
     margin: 0;
     padding: 0;
+    padding-left: 0.5vw;
     font-size: 1.25vmax;
     text-overflow: ellipsis;
     overflow: hidden;

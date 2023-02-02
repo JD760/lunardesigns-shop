@@ -4,7 +4,7 @@ import "./dropdownCheckbox.css";
 
 interface DropdownProps {
     filterOptions: Array<any>,
-    optionsToDisplay: Array<number>,
+    category: string,
     setFilterOptions: Function,
     header: string
 }
@@ -36,9 +36,10 @@ export default function DropdownCheckbox(props: DropdownProps) {
     const createCheckboxes = () => {
         let checkboxes: JSX.Element[] = [];
         let filterOptions = props.filterOptions;
-        let optionsToDisplay = props.optionsToDisplay;
+        let category = props.category;
+
         filterOptions.forEach((option, index) => {
-            if (optionsToDisplay.includes(index)) {
+            if (option.category === category) {
                 checkboxes.push(
                     <Checkbox label={option.label} id={index} value={option.checked} toggle={toggle} key={index}/>
                 )

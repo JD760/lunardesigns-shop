@@ -5,9 +5,10 @@ import SidebarSearchComponent from "./searchComponent/SidebarSearchComponent";
 
 import "./shopPage.css";
 import { useEffect, useState } from "react";
+import { itemData, filterOption } from "../types";
 
 // define a list of all filter options
-const allFilterOptions = [
+const allFilterOptions: filterOption[] = [
     // ornament types
     {label: "Whippet", checked: false, category: "type"},
     {label: "Labrador", checked: false, category: "type"},
@@ -26,35 +27,35 @@ const allFilterOptions = [
     {label: "Blue", checked: false, category: "colour"},
 ];
 
-// TODO: Source this data through the backend
-const allItemData = [
-    {
-        title: "Whippet",
-        id: 1,
-        price: 15.00,
-        searchTags: {type: "whippet", size: "7cm", style: ["heart", "sparkle"], colour: ["black", "white"]},
-        img: "whippets.png"
-    },
-    {
-        title: "Labrador",
-        id: 2,
-        price: 14.00,
-        searchTags: {type: "labrador", size: "9cm", style: ["heart", "clear"], colour: ["brown"]},
-        img: "labradors.png"
-    },
-    {
-        title: "Cat",
-        id: 3,
-        price: 12.00,
-        searchTags: {type: "cat", size: "7cm", style: ["heart", "clear"], colour: ["purple"]},
-        img: "cats.png"
-    },
-]
-
 export default function ShopPageComponent() {
-    const [filterOptions, setFilterOptions] = useState(allFilterOptions)
+    const [filterOptions, setFilterOptions] = useState<filterOption[]>(allFilterOptions)
     const [shopItems, setShopItems] = useState<JSX.Element[]>([]);
+    const [shopItemData, setShopItemData] = useState<itemData[]>([]);
 
+    const [itemDataFetched, setItemDataFetched] = useState<boolean>(false);
+    const [initialItemsCreated, setInitialItemsCreated] = useState<boolean>(false);
+
+    // fetch item data from the backend
+    useEffect(() => {
+        // ensures the fetch is only run once
+        if (!itemDataFetched) {
+            fetch("http://localhost:3000", {
+                method: "GET",
+                headers: {"Content-Type": "text/json"}
+            })
+            .then((response) => response.json())
+            .then(json => {
+                setShopItemData(json.allItemData);
+                setItemDataFetched(true);
+                
+            });
+        }
+        // when the data has been fetched, create the initial items to display
+        if (itemDataFetched && !initialItemsCreated) {
+            createShopItems(shopItemData);
+            setInitialItemsCreated(true);
+        }
+    });
 
     // create the shop Items from an array of item data
     const createShopItems = (data: any) => {
@@ -70,13 +71,13 @@ export default function ShopPageComponent() {
         setShopItems(items)
     }
 
-    // runs just once when the component is created
-    useEffect(() => {
-        createShopItems(allItemData);
-    }, [])
-
     // runs each time the filter options change
     useEffect(() => {
+        // check to ensure the item data has been loaded from the backend
+        if (!itemDataFetched) {
+            return;
+        }
+
         // construct an array of currently selected filters
         const allowedTypes: string[] = [];
         const allowedSizes: string[] = [];
@@ -96,11 +97,11 @@ export default function ShopPageComponent() {
 
         // if no filters are selected, match all items
         if (selectedFilters === 0) {
-            createShopItems(allItemData);
+            createShopItems(shopItemData);
         } else {
             // otherwise, filter the item data and construct a new array with matching elements only
             let matchingItemData: any = [];
-            let itemData = allItemData;
+            let itemData = shopItemData;
             
             // filtering rules for size and type
             if (allowedTypes.length > 0) {
@@ -121,8 +122,6 @@ export default function ShopPageComponent() {
                 itemData = matchingItemData;
             }
             
-
-            console.log(matchingItemData);
             createShopItems(matchingItemData);
         }
     }, [filterOptions])

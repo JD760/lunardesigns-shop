@@ -1,0 +1,31 @@
+.shop-navbar {
+    height: 6vh;
+    width: 100vw;
+    position: fixed;
+    z-index: 100;
+}
+
+.shop-header {
+    height: 6vh;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(238, 238, 238);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
+}
+
+.basket {
+    padding-right: 1vw;
+}
+
+.socials {
+    padding-left: 1vw;
+}
+
+.title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: x-large;
+    text-decoration: underline;
+    user-select: none;
+}

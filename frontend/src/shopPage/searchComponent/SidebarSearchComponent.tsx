@@ -3,32 +3,32 @@ import "./sidebarSearchComponent.css"
 import Checkbox from "./checkbox";
 
 interface SidebarSearchProps {
-    items: Array<any>,
+    filterOptions: Array<any>,
     setItems: Function
 }
 
 export default function SidebarSearchComponent(props: SidebarSearchProps) {
-    const items = props.items;
+    const filterOptions = props.filterOptions;
     const setItems = props.setItems;
 
     const toggle = (id: number) => {
-        let newItems = items.slice();
+        let newItems = filterOptions.slice();
         newItems[id].checked = !newItems[id].checked;
         setItems(newItems);
     }
 
     const resetFilters = () => {
-        let newItems = items.slice();
-        newItems.forEach(item => {
-            item.checked = false;
+        let newItems = filterOptions.slice();
+        newItems.forEach(filterOption => {
+            filterOption.checked = false;
         });
         setItems(newItems);
     }
 
     const setFilters = () => {
-        let newItems = items.slice();
-        newItems.forEach(item => {
-            item.checked = true;
+        let newItems = filterOptions.slice();
+        newItems.forEach(filterOption => {
+            filterOption.checked = true;
         });
         setItems(newItems);
     }
@@ -37,29 +37,29 @@ export default function SidebarSearchComponent(props: SidebarSearchProps) {
         <div className="search-container">
             <div className="filter-category type-category">
                 <p className="filter-category-label">Type</p>
-                <Checkbox label={items[0].label} value={items[0].checked} id={0} toggle={toggle}/>
-                <Checkbox label={items[1].label} value={items[1].checked} id={1} toggle={toggle}/>
-                <Checkbox label={items[2].label} value={items[2].checked} id={2} toggle={toggle}/>
+                <Checkbox label={filterOptions[0].label} value={filterOptions[0].checked} id={0} toggle={toggle}/>
+                <Checkbox label={filterOptions[1].label} value={filterOptions[1].checked} id={1} toggle={toggle}/>
+                <Checkbox label={filterOptions[2].label} value={filterOptions[2].checked} id={2} toggle={toggle}/>
             </div>
 
             <div className="filter-category size-category">
                 <p className="filter-category-label">Size </p>
-                <Checkbox label={items[3].label} value={items[3].checked} id={3} toggle={toggle}/>
-                <Checkbox label={items[4].label} value={items[4].checked} id={4} toggle={toggle}/>
-                <Checkbox label={items[5].label} value={items[5].checked} id={5} toggle={toggle}/>
+                <Checkbox label={filterOptions[3].label} value={filterOptions[3].checked} id={3} toggle={toggle}/>
+                <Checkbox label={filterOptions[4].label} value={filterOptions[4].checked} id={4} toggle={toggle}/>
+                <Checkbox label={filterOptions[5].label} value={filterOptions[5].checked} id={5} toggle={toggle}/>
             </div>
 
             <div className="filter-category style-category">
                 <p className="filter-category-label">Style</p>
-                <Checkbox label={items[6].label} value={items[6].checked} id={6} toggle={toggle}/>
-                <Checkbox label={items[7].label} value={items[7].checked} id={7} toggle={toggle}/>
-                <Checkbox label={items[8].label} value={items[8].checked} id={8} toggle={toggle}/>
+                <Checkbox label={filterOptions[6].label} value={filterOptions[6].checked} id={6} toggle={toggle}/>
+                <Checkbox label={filterOptions[7].label} value={filterOptions[7].checked} id={7} toggle={toggle}/>
+                <Checkbox label={filterOptions[8].label} value={filterOptions[8].checked} id={8} toggle={toggle}/>
             </div>
 
             <div className="filter-category colour-category">
                 <p className="filter-category-label">Colour</p>
-                <Checkbox label={items[9].label} value={items[9].checked} id={9} toggle={toggle}/>
-                <Checkbox label={items[10].label} value={items[10].checked} id={10} toggle={toggle}/>
+                <Checkbox label={filterOptions[9].label} value={filterOptions[9].checked} id={9} toggle={toggle}/>
+                <Checkbox label={filterOptions[10].label} value={filterOptions[10].checked} id={10} toggle={toggle}/>
             </div>
 
             {/* Reset filter options to default values */}
@@ -72,5 +72,5 @@ export default function SidebarSearchComponent(props: SidebarSearchProps) {
                 </button>
             </div>
         </div>
-    )
+    );
 }

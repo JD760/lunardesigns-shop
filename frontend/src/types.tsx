@@ -12,6 +12,11 @@ export type filterOption ={
     category: string
 }
 
+export type CheckboxType = {
+    category: string,
+    element: JSX.Element
+}
+
 type searchTags = {
     type: string,
     size: string,

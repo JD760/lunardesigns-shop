@@ -1,4 +1,3 @@
-import { redirect } from "react-router-dom";
 import ShopItemComponent from "./shopItem";
 import HeaderSearchComponent from "./searchComponent/headerSearchComponent";
 import SidebarSearchComponent from "./searchComponent/SidebarSearchComponent";
@@ -6,6 +5,7 @@ import SidebarSearchComponent from "./searchComponent/SidebarSearchComponent";
 import "./shopPage.css";
 import { useEffect, useState } from "react";
 import { itemData, filterOption } from "../types";
+import NavbarComponent from "../navbar/navbarComponent";
 
 // define a list of all filter options
 const allFilterOptions: filterOption[] = [
@@ -39,15 +39,16 @@ export default function ShopPageComponent() {
     useEffect(() => {
         // ensures the fetch is only run once
         if (!itemDataFetched) {
-            fetch("http://localhost:3000", {
+            fetch("http://localhost:3000/items/getitems", {
                 method: "GET",
                 headers: {"Content-Type": "text/json"}
             })
             .then((response) => response.json())
             .then(json => {
-                setShopItemData(json.allItemData);
-                setItemDataFetched(true);
-                
+                setShopItemData(json);
+                if (json[0].title) {
+                    setItemDataFetched(true);
+                }
             });
         }
         // when the data has been fetched, create the initial items to display
@@ -68,7 +69,7 @@ export default function ShopPageComponent() {
                 img={item.img}
             />
         });
-        setShopItems(items)
+        setShopItems(items);
     }
 
     // runs each time the filter options change
@@ -129,11 +130,7 @@ export default function ShopPageComponent() {
     return(
         <div className="shop-page-container">
             <div className="shop-navbar">
-                <div className="shop-header">
-                    <div className="socials">SOCIALS</div>
-                    <div className="title"><a href="/">WHIPPET WORLD</a></div>
-                    <div className="basket"><img src="cart.svg"/></div>
-                </div>
+                <NavbarComponent/>
                 <hr className="search-content-separator"/>
                 {/* Shown when the screen size is less than 1000px wide */}
                 <div className="header-search">
@@ -150,11 +147,11 @@ export default function ShopPageComponent() {
             {/* Shown when the screen size is more than 1000px wide */}
             <div className="sidebar-search">
                 <SidebarSearchComponent
-                    items={filterOptions}
+                    filterOptions={filterOptions}
                     setItems={(value: any) => setFilterOptions(value)}
                 />
             </div>
             </div>
         </div>
-    )
+    );
 }

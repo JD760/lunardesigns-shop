@@ -17,6 +17,13 @@ export type CheckboxType = {
     element: JSX.Element
 }
 
+export type BasketItemType = {
+    title: string,
+    price: number,
+    info: string,
+    img: string
+}
+
 type searchTags = {
     type: string,
     size: string,

@@ -20,6 +20,7 @@
         grid-template-columns: 20vw 80vw;
         grid-template-rows: 94vh;
     }
+
     .shop-content-container {
         grid-column: 2;
     }
@@ -27,6 +28,7 @@
     .shop-navbar {
         height: 6vh;
     }
+
     .header-search {
         display: none;
         visibility: hidden;

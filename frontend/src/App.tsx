@@ -4,16 +4,17 @@ import HomePageComponent from './homePage/homePage';
 import ShopPageComponent from "./shopPage/shopPage"
 import ListingComponent from './listingPage/ListingComponent';
 import './App.css';
+import { BasketItemType } from './types';
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [basketItems, setBasketItems] = useState<BasketItemType[]>([]);
+  
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePageComponent/>}/>
-        <Route path="/shop" element={<ShopPageComponent/>}/>
-        <Route path="/item/:id" element={<ListingComponent/>}></Route>
+        <Route path="/shop" element={<ShopPageComponent basketItems={basketItems}/>}/>
+        <Route path="/item/:id" element={<ListingComponent basketItems={basketItems}/>}></Route>
       </Routes>
     </BrowserRouter>
   )

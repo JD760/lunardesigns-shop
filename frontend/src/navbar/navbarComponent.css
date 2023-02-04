@@ -29,3 +29,55 @@
     text-decoration: underline;
     user-select: none;
 }
+
+@media screen and (min-width: 900px) {
+    .basket-overlay {
+        width: 30vw;
+        margin-left: 69vw;
+        margin-right: 1vw;
+        background-color: white;
+        display: flex;
+        flex-flow: column wrap;
+    }
+
+    .basket-overlay-title {
+        text-align: center;
+        background-color: rgb(238, 238, 238);
+        height: 5vh;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    @keyframes fadein {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
+
+    .basket-overlay {
+        animation-name: fadein;
+        animation-duration: 0.5s;
+    }
+}
+
+
+.checkout {
+    width: 100%;
+    background-color: blanchedalmond;
+    display: grid;
+    grid-template-rows: 1;
+    grid-template-columns: 40% 40% 20%;
+    vertical-align: middle;
+}
+
+#order-total {
+    grid-row: 1;
+    grid-column: 1;
+    margin-left: 0.5vw;
+}
+
+#checkout-btn {
+    grid-row: 1;
+    grid-column: 3;
+    height: calc(4vh);
+    margin: auto;
+}

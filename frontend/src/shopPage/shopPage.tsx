@@ -4,7 +4,7 @@ import SidebarSearchComponent from "./searchComponent/SidebarSearchComponent";
 
 import "./shopPage.css";
 import { useEffect, useState } from "react";
-import { itemData, filterOption } from "../types";
+import { itemData, filterOption, BasketItemType } from "../types";
 import NavbarComponent from "../navbar/navbarComponent";
 
 // define a list of all filter options
@@ -27,7 +27,11 @@ const allFilterOptions: filterOption[] = [
     {label: "Blue", checked: false, category: "colour"},
 ];
 
-export default function ShopPageComponent() {
+interface shopPageProps {
+    basketItems: BasketItemType[]
+}
+
+export default function ShopPageComponent(props: shopPageProps) {
     const [filterOptions, setFilterOptions] = useState<filterOption[]>(allFilterOptions)
     const [shopItems, setShopItems] = useState<JSX.Element[]>([]);
     const [shopItemData, setShopItemData] = useState<itemData[]>([]);
@@ -130,7 +134,7 @@ export default function ShopPageComponent() {
     return(
         <div className="shop-page-container">
             <div className="shop-navbar">
-                <NavbarComponent/>
+                <NavbarComponent basketItems={props.basketItems}/>
                 <hr className="search-content-separator"/>
                 {/* Shown when the screen size is less than 1000px wide */}
                 <div className="header-search">

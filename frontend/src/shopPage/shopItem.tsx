@@ -20,5 +20,5 @@ export default function ShopItemComponent(props: ShopItemProps) {
             </div>
         </div>
         </a>
-    )
+    );
 }

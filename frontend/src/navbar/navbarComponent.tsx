@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import BasketItem from "./basketItem";
 import { BasketItemType } from "../types";
 import "./navbarComponent.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFacebook, faInstagram, faEtsy } from "@fortawesome/free-brands-svg-icons";
+import { faBasketShopping } from "@fortawesome/free-solid-svg-icons";
 
 interface NavbarProps {
     basketItems: BasketItemType[]
@@ -25,13 +28,23 @@ export default function NavbarComponent(props: NavbarProps) {
     return(
         <div>
             <div className="shop-header">
-                <div className="socials">SOCIALS</div>
-                <div className="title"><a href="/">WHIPPET WORLD</a></div>
+                <div className="socials">
+                    <a className="social-icon" href="https://facebook.com/lunardesignsjewellery">
+                        <FontAwesomeIcon icon={faFacebook} size="2x" color="blue"/>
+                    </a>
+                    <a className="social-icon" href="">
+                        <FontAwesomeIcon icon={faInstagram} size="2x" color="black"/>
+                    </a>
+                    <a className="social-icon" href="https://lunardesigns2021.etsy.com">
+                        <FontAwesomeIcon icon={faEtsy} size="2x" color="orange"/>
+                    </a>
+                </div>
+                <div className="title"><a href="/">LUNAR DESIGNS</a></div>
                 <div
                     className="basket"
                     onClick={() => setShowOverlay(!showOverlay)}
                 >
-                    <img src="cart.svg"/>
+                    <FontAwesomeIcon icon={faBasketShopping} size="2x" color="black"/>
                 </div>
             </div>
             <div

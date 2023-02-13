@@ -23,6 +23,10 @@
     padding-left: 1vw;
 }
 
+.social-icon {
+    padding-left: 0.5vw;
+}
+
 .title {
     font-family: 'Montserrat', sans-serif;
     font-size: x-large;

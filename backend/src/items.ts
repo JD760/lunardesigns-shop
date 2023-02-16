@@ -6,7 +6,7 @@ const router = express.Router();
 router.get("/getitems", (req, res) => {
     const allItemData: item[] = [
         {
-            title: "Whippet",
+            title: "Small Resin Whippet Ornament",
             id: 1,
             price: 15.00,
             searchTags: {type: "whippet", size: "7cm", style: ["heart", "sparkle"], colour: ["black", "white"]},
